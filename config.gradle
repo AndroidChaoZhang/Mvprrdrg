@@ -1,0 +1,56 @@
+//gradle相关配置https://blog.csdn.net/yechaoa/article/details/80484468
+ext {//ext是自定义属性
+    android = [
+            compileSdkVersion : 27,//编译所依赖的Android SDK的版本
+            buildToolsVersion : '27.0.3',//构建该Android工程所用构建工具的版本
+            applicationId : 'democoolwidget.zc.com.mvprrdrg',//配置我们的包名，包名是app的唯一标识，其实他跟AndroidManifest里面的package是可以不同的，他们之间并没有直接的关系
+            minSdkVersion : 15,//支持的Android系统的api level
+            targetSdkVersion : 27,//表明我们是基于哪个Android版本开发的
+            versionCode : 1,//明我们的app应用内部版本号
+            versionName : '1.0',//表明我们的app应用的版本名称
+    ]
+
+    def dependVersion = [
+            support     : "27.1.0",
+            butterknife : "8.2.1",
+            retrofit    : "2.2.0",
+            okhttp      : "3.6.0",
+            dagger2     : "2.0.2",
+            glide       : "4.6.1",
+    ]
+
+    dependencies = [
+        "appcompat-v7"                  : "com.android.support:appcompat-v7:${dependVersion.support}",
+        "design"                        : "com.android.support:design:${dependVersion.support}",
+        "multidex"                      : "com.android.support:multidex:1.0.1",
+
+        //di
+        "dagger"                        : "com.google.dagger:dagger:${dependVersion.dagger2}",
+        "dagger-compiler"               : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
+        "annotation"                    : "org.glassfish:javax.annotation:10.0-b28",
+
+        "butterknife"                   : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+        "butterknife-compiler"          : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+        //rx
+        "rxjava"                        : "io.reactivex.rxjava2:rxjava:2.0.7",
+        "rxandroid"                     : "io.reactivex.rxjava2:rxandroid:2.0.1",
+
+        //network
+        "gson"                          : "com.google.code.gson:gson:2.7",
+        "retrofit"                      : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+        "retrofit-converter-gson"       : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+        "retrofit-adapter-rxjava2"      : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
+        "okhttp"                        : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+        "okhttp-logging-interceptor"    : "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
+        "glide"                         : "com.github.bumptech.glide:glide:${dependVersion.glide}",
+        "glide-compiler"                : "com.github.bumptech.glide:compiler:${dependVersion.glide}",
+        "glide-okhttp3-integration"     : "com.github.bumptech.glide:okhttp3-integration:${dependVersion.glide}",
+        "jsoup"                         : "org.jsoup:jsoup:1.10.1",
+
+        ///recycle adapter 适配器
+        "cardview-v7"                   : "com.android.support:cardview-v7:${dependVersion.support}",
+        "recyclerview-v7"               : "com.android.support:recyclerview-v7:${dependVersion.support}",
+        "brvah"                         : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+    ]
+
+}

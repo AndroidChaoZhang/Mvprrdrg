@@ -1,0 +1,30 @@
+//gradle相关配置https://blog.csdn.net/yechaoa/article/details/80484468
+apply from: "config.gradle"
+
+buildscript {//buildscript中的声明是gradle脚本自身需要使用的资源,可以声明的资源包括依赖项、第三方插件、maven仓库地址等
+    
+    repositories {//仓库,jcenter()、maven()和google()就是托管第三方插件的平台
+        google()
+        jcenter()
+    }
+    dependencies {//Gradle需要的插件,把需要配置的依赖用classpath配置上
+        classpath 'com.android.tools.build:gradle:3.1.3'
+        classpath "io.realm:realm-gradle-plugin:3.1.1"
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {//所有module所需要使用的资源
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {//删除生成的Build文件的
+    delete rootProject.buildDir
+}
